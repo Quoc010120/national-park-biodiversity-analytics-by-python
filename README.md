@@ -22,6 +22,7 @@ In this project, the analysis will be conducted from the viewpoint of a biodiver
 - Are certain types of species more prone to being endangered?
 - Are there significant differences between species and their conservation status?
 - Which animals are most common, and how are they distributed across the parks?
+
 ## Data
 This project has two data sets that came with the package. The first `csv` file has information about each species and another has observations of species with park locations. This data will be used to analyze the goals of the project. 
 
@@ -30,3 +31,5 @@ First, import the library that will use to analyze in this project.
 To examine the conservation status of species and their observations in national parks, the datasets are first loaded into DataFrames. Once in DataFrame format, the data can be explored and visualized using Python.
 
 In the following steps, `Observations.csv` and `Species_info.csv` are read into DataFrames named `observations` and `species`, respectively. The contents of these DataFrames are then previewed with `.head()` to get an initial look at the data.
+
+![First table](/img/table-1.png)
