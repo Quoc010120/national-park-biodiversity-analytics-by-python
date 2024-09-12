@@ -27,10 +27,16 @@ In this project, the analysis will be conducted from the viewpoint of a biodiver
 This project has two data sets that came with the package. The first `csv` file has information about each species and another has observations of species with park locations. This data will be used to analyze the goals of the project. 
 
 # Data preparation
-First, import the library that will use to analyze in this project.
 To examine the conservation status of species and their observations in national parks, the datasets are first loaded into DataFrames. Once in DataFrame format, the data can be explored and visualized using Python.
 
-In the following steps, `Observations.csv` and `Species_info.csv` are read into DataFrames named `observations` and `species`, respectively. The contents of these DataFrames are then previewed with `.head()` to get an initial look at the data.
+In the following steps, the contents of these DataFrames are then previewed with `.head()` to get an initial look at first five rows of the data.
+
+The `species_info.csv` file provides details about various species found in the National Parks. The dataset includes the following columns:
+
+- category: The taxonomic category for each species
+- scientific_name: The scientific name of each species
+- common_names: The common names for each species
+- conservation_status: The conservation status of each species
 
 ![First table](/img/table-1.png)
 
@@ -47,7 +53,7 @@ This section will delve deeply into the data and use the insights gained to perf
 
 ## Data Exploration
 
-To begin with, we'll examine the characteristics of the data by checking the dimensions and data types of the variables in both datasets using the `describe` method. park.
+To begin with, we'll examine the characteristics of the data by checking the dimensions and data types of the variables in both datasets.
 
 For the `species` dataset:
 - It has 5,824 rows, each with a unique category and scientific name.
@@ -86,18 +92,18 @@ Based on the stacked bar chart below, we can observe that many endangered specie
 
 In the previous section, we examined the distribution of different animal types and their conservation statuses. Now, we want to explore the question: Are certain species more susceptible to becoming endangered? To analyze which animal types are more likely to face endangerment, I will create a new column called `conservation`, which will include any species with data other than `No Intervention.
 
-[Eight-table](/img/table-8.png)
+![Eight-table](/img/table-8.png)
 
 Next, I will add a new column called `protected_percentage`, which will represent the proportion of protected species within each type of species.
 
-[Nineth-table](/img/table-9.png)
+![Nineth-table](/img/table-9.png)
 
 In this section, we will conduct chi-squared tests to determine if there are statistically significant differences in conservation status rates across different species. To perform the chi-squared test, a contingency table will be created, which should look like this:
 
 |             | Protected | Not Protected |
 | ----------- | ---------- | -------------- |
-| Mammal      | ?          | ?              |
-| Bird        | ?          | ?              |
+| Mammal      | 30         | 146            |
+| Bird        | 75         | 413            |
 
 The first test, named `contingency1`, will be populated with the correct values for mammals and birds.
 
@@ -107,21 +113,19 @@ The next comparison will test the difference between `Reptile` and `Mammal`.
 
 The contingency table format will be as follows:
 
-||Protected|Not Protected|
-|---|---|---|
-|Mammal|?|?|
-|Reptile|?|?|
+|             | Protected | Not Protected |
+| ----------- | ---------- | -------------- |
+| Mammal      | 30         | 146            |
+| Bird        | 5          | 73             |
 
 In this case, the p-value is 0.039, which is below the standard threshold of 0.05. This indicates that the difference between reptiles and mammals is statistically significant. The results suggest that mammals have a significantly higher rate of needing protection compared to reptiles.
 
 ### Species in each parks
 The following analysis will focus on data collected by conservationists, who have recorded sightings of various species across multiple national parks over the last 7 days.
 
-To answer the question of which animal is most prevalent and how they are distributed among the parks, the first step is to examine the common names of species in the dataset. The data will need to be broken down into individual species names for further analysis.
+To determine the most prevalent animal and their distribution across parks, we first examine the species' common names in the dataset. Duplicate species names within rows are removed and collapsed into a single list for easier analysis.
 
-The next step is to clean up duplicate words in each row since they should no be counted more than once per species. And collapse to one list for easier to use
-
-The data is now prepared for counting the occurrences of each word. From this analysis, it appears that "Bat" occurred 23 times, while "Shrew" appeared 18 times.
+After processing, "Bat" appeared 23 times, and "Shrew" 18 times.
 
 ![tenth-table](/img/table-10.png)
 
@@ -153,7 +157,7 @@ The project successfully produced several data visualizations and insights about
   - The majority of species were not under conservation, with 5,633 species not protected compared to 191 that were.
 
 - **Are certain types of species more likely to be endangered?**
-  - Mammals and birds had the highest percentage of species under protection.
+  - Mammals and birds had the highest percentage of species under engdangered.
 
 - **Are the differences between species and their conservation status significant?**
   - Although there was no significant difference in conservation percentages between mammals and birds, a statistically significant difference was observed between mammals and reptiles.
