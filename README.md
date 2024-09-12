@@ -1,3 +1,4 @@
+# NATIONAL PARK BIODIVERSITY ANALYTICS PROJECT
 # Introduction
 
 This project focuses on analyzing data from the National Park Service, specifically related to various species across different park locations and their conservation status. The key sections of this project include defining objectives, data preparation, analysis, data visualization, and drawing conclusions from the findings.
