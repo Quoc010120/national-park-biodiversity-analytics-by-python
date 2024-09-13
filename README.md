@@ -19,6 +19,8 @@ The datasets `Observations.csv` and `Species_info.csv` were provided by [Codecad
 
 Note: The data used in this project is inspired by real-world data but is primarily fictional.
 
+![dog-and-men-advanture](/img/background2.jpg)
+
 # Project objective
 
 ## Project goal
